@@ -1,40 +1,67 @@
-# FEBootcamp2019 - Angular Presentation Day1
+# FEBootcamp2019
+Bootcamp participants'excercises for the second Angular presentation
 
-Bootcamp participants'exercises - 1_Fundamentals_ComponentsTemplates
+## Template form
 
-Events: choose one, like city events, movie events, musical events etc.
+1. As a user I want to be able to create new Events
+    - Add a new Event button on the top of the list
+    - Generate a create new Event component
+    - Create a template form representing the data for the new Event.
+      Can contain the following details:
+        - title
+        - type
+        - creation / due date
+        - country
+        - description
+    - Add submit button and on click append the Event to the existing Event list
+    - Add template form validations
+        - title and description -> required, minlength 3
+        - creation / due date -> valid date
+        - type (enum) -> required, dropdown
+        - submit -> disabled if there is any invalid field
+    - Show custom error message for name (use css/directives)
 
-1. As a user I want to have a component in order to represent an event, ex:'cgk-event-info', into html (use data binding)
-Use the new component into app.component
+## Reactive form
 
-2. As a user I want to see more events displayed, using the existing created component. 
-The events can be mocked in the event-list component.
-- use ngFor
+1. Tech task - refactore Template form to use Reactive form 
+In order to have a history, create a new component 'create-event-reactive.component.ts' and use this new component to create Events.
+    - Add validators to FormControl
+    - Add FormGroup for title and details(for rest of properties)
 
-3. As a user I want to see only the events that are 7 days older
-- so the mocked list of events needs to be changed to have events older or newer
+## Routing
 
-3. Create a sub-component of 'cgk-event-info' and use inline template
+1. As a user I want to have a home component (Show a home message)
+The Event list should always be displayed and a content given by the router
 
-4. Add more properties to the model representing the Event, in order to have more informations on the screen. Ex: name, creation date, due date, description etc..
+2. As a user I want to have a home component route
+3. As a user I want to be redirected to another page when a user clicks "More info"
+4. As a user I want to see the content based on the selected "More info" and render event informations. (event/{id})
+5. As a user I want to have a not found route for an unmatched url
+6. As a user I want to have in navigation a link to display home component(logo)
+7. Add prevent navigation back while user details form is dirty (user can dismiss changes)
 
-5. Use ngIf by displaying an element like <div> Online Url: {{ event.onlineUrl }} if the type of event is 'online'. 
-Hide other properties if make sense.
-  
-6. Add a property of 'Country' to this event and use ngSwitch in order to display a different 'div', the container event element should have a different class, so that the Country text will have a different color:
-- if UK, display blue 
-- if RO, display green
-- if other countries, display default text.
+## Directives
 
-Or if bootstrapp used, add .text-success or .text-warning or nothing.
+1. Tech task - refactor validators on create Event form to use build-in directives (ex: ngIf, ng-container)
+2. Tech task - Generate custom directive to add a RebeccaPurple border if field starts with an upper-case letter, for example 'J' on the Event name
 
-7. Move logic of 6) to typescript logic in order to use 'bind class' with a model property.
+## Pipes
 
-8. Adapt this binding class in order to add more class names, ex: after it's done, to have in DOM something like:
- < div class="my-blue-class item-class flex-item">...< /div>
- 
- 9. Add a button to each Event cart, "Show more info". 
- The button should display more Event description. From UI perspective, in the same Event container, display more information
- 
- 10. Using point 9), make click event to take the index of Event and update 'description' property in order to include the date: currentDate. The year of current day should be +index. SO if currentDate is 05-05-2019 and index is 5, I want to display the: "description event..asdasdasd asd asd. Date 05-05-2024"
- 
+1. As a user I want to change the format of the Creation Date in event (ex: MM-DD-YY h)
+2. As a user I want to add dynamic text to Description for Events created after 2015.
+"After 2015: description asd asd" if creation date > 2015.
+
+## Services
+
+1. Tech task - Genereate an user-info-service
+2. Tech task - Move the mocked data to the service
+
+## Server communication
+
+1.   Tech task - Create a new method to get Event list to return a promise and use then
+2.   Tech task - Create a new method to get Events using Observable.of and use subscribe to get the data
+3.   Tech task - Use the async pipe on the observable method defined earlier
+4.   Tech task - Use two operators from RxJS (ex: map, filter, catchError) -> return just the online Events
+
+
+
