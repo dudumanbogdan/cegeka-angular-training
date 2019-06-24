@@ -9,7 +9,7 @@ Use the new component into app.component
 
 2. As a user I want to see more events displayed, using the existing created component. 
 The events can be mocked in the event-list component.
-- use ngFor
+- use ngFor 
 
 3. As a user I want to see only the events that are 7 days older
 - so the mocked list of events needs to be changed to have events older or newer
