@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserModel} from '../shared/models/user.model';
+import {Gender} from '../shared/enums/gender';
 
 @Component({
   selector: 'app-user-info',
@@ -8,6 +9,8 @@ import {UserModel} from '../shared/models/user.model';
 })
 export class UserInfoComponent implements OnInit {
   @Input() userInfo: UserModel;
+
+  GenderType: typeof Gender = Gender;
 
   constructor() { }
 

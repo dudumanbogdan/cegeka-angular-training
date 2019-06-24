@@ -9,25 +9,26 @@ import {Gender} from '../shared/enums/gender';
 })
 export class UserListComponent implements OnInit {
   userInfos: UserModel[];
+  filterArgs = {birthday: new Date(1999, 2, 5)};
 
   constructor() { }
 
   ngOnInit() {
     this.userInfos = [
-      new UserModel({firstName: 'John', lastName: 'Bravo', type: Gender.Female, status: true}),
-      new UserModel({firstName: 'Jacquelyn', lastName: 'Beeck', type: Gender.Female}),
-      new UserModel({firstName: 'Clarita', lastName: 'Snead', type: Gender.Female}),
-      new UserModel({ firstName: 'Cornelle', lastName: 'MacAdam', type: Gender.Female, status: true}),
-      new UserModel({ firstName: 'Charmane', lastName: 'Milliken', type: Gender.Female}),
-      new UserModel({ firstName: 'Yvette', lastName: 'Medcalfe', type: Gender.Female}),
-      new UserModel({firstName: 'Babbie', lastName: 'MacKay', type: Gender.Female}),
-      new UserModel({firstName: 'Haily', lastName: 'Longea', type: Gender.Female}),
-      new UserModel({firstName: 'Fredrika', lastName: 'Heimes', type: Gender.Female, status: true}),
-      new UserModel({ firstName: 'Pru', lastName: 'Barlee', type: Gender.Female}),
-      new UserModel({ firstName: 'Torrie', lastName: 'Leveret', type: Gender.Female, status: true}),
-      new UserModel({ firstName: 'Nickolai', lastName: 'Lindl', type: Gender.Male}),
-      new UserModel({ firstName: 'Dane', lastName: 'Bardill', type: Gender.Female }),
-      new UserModel({firstName: 'John', lastName: 'Bravo', type: Gender.Female})
+      new UserModel({birthday: new Date(1999, 2, 4), firstName: 'John', lastName: 'Bravo', type: Gender.Female, status: true}),
+      new UserModel({birthday: new Date(1999, 3, 4), firstName: 'Jacquelyn', lastName: 'Beeck', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 4, 4), firstName: 'Clarita', lastName: 'Snead', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 5, 4),  firstName: 'Cornelle', lastName: 'MacAdam', type: Gender.Female, status: true}),
+      new UserModel({birthday: new Date(1999, 1, 4),  firstName: 'Charmane', lastName: 'Milliken', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 2, 4),  firstName: 'Yvette', lastName: 'Medcalfe', type: Gender.Unknown}),
+      new UserModel({birthday: new Date(1999, 8, 4), firstName: 'Babbie', lastName: 'MacKay', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 7, 4), firstName: 'Haily', lastName: 'Longea', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 9, 4), firstName: 'Fredrika', lastName: 'Heimes', type: Gender.Unknown, status: true}),
+      new UserModel({birthday: new Date(1999, 10, 4),  firstName: 'Pru', lastName: 'Barlee', type: Gender.Female}),
+      new UserModel({birthday: new Date(1999, 3, 4),  firstName: 'Torrie', lastName: 'Leveret', type: Gender.Female, status: true}),
+      new UserModel({birthday: new Date(1999, 4, 4),  firstName: 'Nickolai', lastName: 'Lindl', type: Gender.Male}),
+      new UserModel({birthday: new Date(1999, 7, 4),  firstName: 'Dane', lastName: 'Bardill', type: Gender.Female }),
+      new UserModel({birthday: new Date(1999, 10, 4), firstName: 'John', lastName: 'Bravo', type: Gender.Female})
     ];
   }
 
