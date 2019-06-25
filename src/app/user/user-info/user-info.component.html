@@ -6,8 +6,8 @@
   <ng-container *ngIf="userInfo.status === true">{{userInfo.status}}</ng-container>
 
   <ng-container [ngSwitch]="userInfo.type">
-    <ng-container *ngSwitchCase="GenderType.Female"><span class="F">userInfo.type</span></ng-container>
-    <ng-container *ngSwitchCase="GenderType.Male"><span class="M">userInfo.type</span></ng-container>
-    <ng-container *ngSwitchDefault>No gender type set</ng-container>
+    <ng-container *ngSwitchCase="GenderType.Female"><span [ngClass]="{'F': userInfo.type === GenderType.Female}">{{ userInfo.type }}</span></ng-container>
+    <ng-container *ngSwitchCase="GenderType.Male"><span [ngClass]="{'M': userInfo.type === GenderType.Male}">{{ userInfo.type }}</span></ng-container>
+    <ng-container *ngSwitchDefault><span [ngClass]="{'U': userInfo.type === GenderType.Unknown}">No gender type set</span></ng-container>
   </ng-container>
 </div>
