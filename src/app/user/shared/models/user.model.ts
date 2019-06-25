@@ -7,19 +7,22 @@ export class UserModel implements UserInfoModel {
   birthday?: Date;
   type: Gender;
   status?: boolean;
+  id: number;
 
   constructor(fields?: {
+    id: number,
     firstName: string,
     lastName: string,
     birthday?: Date,
     type: Gender,
-    status?: boolean
+    status?: boolean,
   }) {
     this.firstName = fields.firstName;
     this.lastName = fields.lastName;
     this.birthday = fields.birthday;
     this.type = fields.type;
     this.status = fields.status || false;
+    this.id = fields.id;
   }
 
   get fullName() {

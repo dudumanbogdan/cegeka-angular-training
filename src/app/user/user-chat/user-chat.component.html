@@ -1,0 +1,13 @@
+<p *ngIf="chatUser; else noUser">
+  Chat with:
+  {{chatUser.id}}
+  {{chatUser.firstName | lowercase}}
+  {{chatUser.lastName}}
+  {{chatUser.birthday | date:'yyyy.MM.dd'}}
+  {{chatUser.type}}
+  {{chatUser.status}}
+</p>
+
+<ng-template #noUser>
+  <p>No user defined</p>
+</ng-template>

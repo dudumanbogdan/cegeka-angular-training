@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserModel} from '../shared/models/user.model';
 import {Gender} from '../shared/enums/gender';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
@@ -12,10 +13,14 @@ export class UserInfoComponent implements OnInit {
 
   GenderType: typeof Gender = Gender;
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
 
   }
 
+  onUserInfoClick(id: number) {
+    this.router.navigate(['chat', id]);
+  }
 }
