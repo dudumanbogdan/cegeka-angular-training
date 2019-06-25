@@ -1,0 +1,23 @@
+
+#userContainer {
+  width: 300px;
+  display: inline-block;
+  height: 100vh;
+}
+
+#chatContainer {
+  display: inline-block;
+  vertical-align: top;
+}
+
+header {
+  height: 150px;
+  background-color: var(--primary-color-dark);
+  color: white;
+  width: 100%;
+  padding: 10px;
+}
+
+#appContainer {
+  background-color: var(--primary-color);
+}
