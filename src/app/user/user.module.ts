@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import {CreateUserStateService} from './shared/services/create-user-state.service';
 import {CreateUserInfoReactiveComponent} from './create-user-info-reactive/create-user-info-reactive.component';
+import {DeactivateCreateUserGuard} from './shared/guards/deactivate-create-user.guard';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {CreateUserInfoReactiveComponent} from './create-user-info-reactive/creat
     SharedModule
   ],
   providers: [
-    CreateUserStateService
+    CreateUserStateService,
+    DeactivateCreateUserGuard
   ],
   exports: [UserListComponent]
 })

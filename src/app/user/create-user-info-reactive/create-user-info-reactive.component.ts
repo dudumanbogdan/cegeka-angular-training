@@ -49,6 +49,12 @@ export class CreateUserInfoReactiveComponent implements OnInit {
     });
   }
 
+  canDeactivate() {
+    if (this.createUserForm.dirty) {
+      return window.confirm('Discard changes?');
+    }
+  }
+
   addUserInfo(formValues: any) {
     console.log(formValues.details);
     this.userInfoService.addUserInfo(
