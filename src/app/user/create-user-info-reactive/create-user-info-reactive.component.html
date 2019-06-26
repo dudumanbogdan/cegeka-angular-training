@@ -1,0 +1,29 @@
+<form [formGroup]="createUserForm" novalidate (ngSubmit)="createUserForm.valid && addUserInfo(createUserForm.value)" autocomplete="off" class="container">
+  <div class="form-group-container" formGroupName="name">
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input class="form-control" placeholder="Type your first name" formControlName="firstName" name="firstName" />
+      <span *ngIf="!validateFirstName() && firstName.touched || (firstName.touched && firstName.value === lastName.value)">First Name is invalid</span>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input class="form-control" placeholder="Type your last name" formControlName="lastName" name="lastName" />
+      <span *ngIf="!validateLastName() ">Last Name is invalid</span>
+    </div>
+  </div>
+  <div class="form-group-container" formGroupName="details">
+    <div class="form-group">
+        <label for="birthday">Birthday</label>
+        <input class="form-control" type="date" formControlName="birthday" name="birthday" />
+        <span *ngIf="!validateBirthday()">Birthday is invalid</span>
+    </div>
+    <div class="form-group">
+        <label for="gender">Gender</label>
+        <select name="gender" formControlName="gender">
+          <option *ngFor="let gender of genders" [ngValue]="gender" > {{gender}} </option>
+        </select>
+        <span *ngIf="!validateGender()">Gender is invalid</span>
+    </div>
+  </div>
+  <button class="submit-btn" type="submit" [disabled]="isFormValid(createUserForm.status)"  [class.disabled]="createUserForm.valid !== true">Submit</button>
+</form>

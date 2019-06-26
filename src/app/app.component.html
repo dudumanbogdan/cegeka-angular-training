@@ -6,7 +6,8 @@
     </div>
   </header>
   <section id="userContainer" class="primary">
-    <a [routerLink]="['createUser']">Create User Info</a>
+    <button [routerLink]="['createUserTemplate']">Create User Info - Template Form</button>
+    <button [routerLink]="['createUserReactive']">Create User Info - Reactive Form</button>
     <app-user-list></app-user-list>
   </section>
   <section id="chatContainer">
