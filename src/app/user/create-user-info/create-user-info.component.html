@@ -1,0 +1,29 @@
+<form #createUserForm="ngForm" (ngSubmit)="createUserForm.valid && addUserInfo(createUserForm.value)" class="container">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="firstName" class="form-control" placeholder="Type your first name" (ngModel)="userInfo.firstName" name="firstName"
+      required minlength="3" />
+    <span *ngIf="createUserForm.controls['firstName']?.invalid && createUserForm.controls['firstName']?.touched">First Name is invalid</span>
+  </div>
+  <div class="form-group">
+    <label for="lastName">Last Name</label>
+    <input id="lastName" class="form-control" placeholder="Type your last name" (ngModel)="userInfo.lastName"
+           name="lastName"
+           required minlength="3"/>
+    <span
+      *ngIf="createUserForm.controls['lastName']?.invalid && createUserForm.controls['lastName']?.touched || (createUserForm.controls['lastName']?.touched && createUserForm.controls['firstName']?.value === createUserForm.controls['lastName']?.value)">Last Name is invalid</span>
+  </div>
+  <div class="form-group">
+      <label for="birthday">Birthday</label>
+      <input id="birthday" class="form-control" type="date" (ngModel)="userInfo.birthday" name="birthday" required />
+      <span *ngIf="createUserForm.controls['birthday']?.invalid && createUserForm.controls['birthday']?.touched">Birthday is invalid</span>
+  </div>
+  <div class="form-group">
+      <label for="gender">Gender</label>
+      <select id="gender" name="gender" ngModel required>
+        <option *ngFor="let gender of genders" [ngValue]="gender" > {{gender}} </option>
+      </select>
+      <span *ngIf="createUserForm.controls['gender']?.invalid && createUserForm.controls['gender']?.touched">Gender is invalid</span>
+    </div>
+  <button class="submit-btn" [ngClass]="{formValid: createUserForm.valid}" type="submit" [disabled]="isFormValid(createUserForm.status)">Submit</button>
+</form>

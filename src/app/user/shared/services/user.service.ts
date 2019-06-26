@@ -33,4 +33,8 @@ export class UserService {
   get(id: number) {
     return this.users.find(x => x.id === id);
   }
+
+  addUserInfo(user: any) {
+    this.users.push(new UserModel(user));
+  }
 }

@@ -1,0 +1,35 @@
+.form-group, .submit-btn {
+  margin: 10px;
+}
+
+.submit-btn {
+  padding: 14px;
+  background-color: var(--primary-color-dark);
+  color: var(--primary-color-text);
+  border: none;
+
+  cursor: not-allowed;
+
+  &.formValid {
+    cursor: pointer;
+    color: var(--primary-text-color);
+    background-color: var(--accent-color);
+  }
+}
+
+label {
+  padding-right: 4px;
+}
+
+input {
+  height: 40px;
+  padding: 8px;
+}
+
+span {
+  margin-left: 10px;
+}
+
+input.ng-invalid.ng-dirty {
+  border: 1px solid red;
+}
