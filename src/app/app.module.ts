@@ -3,9 +3,9 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {SharedModule} from './shared/shared.module';
-import {AppRoutingModule} from './app-routing/app-routing.module';
 import {HomeComponent} from './home/home.component';
 import {UserModule} from './user/user.module';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +14,8 @@ import {UserModule} from './user/user.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule,
     AppRoutingModule,
+    SharedModule,
     UserModule
   ],
   providers: [],

@@ -1,9 +1,9 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {UserChatComponent} from '../user/user-chat/user-chat.component';
-import {UserResolverGuard} from '../user/shared/guards/user-resolver-guard.service';
-import {HomeComponent} from '../home/home.component';
-import {CreateUserInfoComponent} from '../user/create-user-info/create-user-info.component';
+import {HomeComponent} from './home/home.component';
+import {UserChatComponent} from './user/user-chat/user-chat.component';
+import {CreateUserInfoComponent} from './user/create-user-info/create-user-info.component';
+import {UserResolverGuard} from './user/shared/guards/user-resolver-guard.service';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
