@@ -1,6 +1,9 @@
 # FEBootcamp2019
 Bootcamp participants'excercises for the 3 presentation
 
+Events = chosen event started in Session 1.
+Adapt 'Sessions' and 'Speakers' to your chosen 'Event'
+
 ## Testing 
 
 Checkout branch '3_Fundamentals_RxjsUnitTests'
@@ -12,7 +15,7 @@ Checkout branch '3_Fundamentals_RxjsUnitTests'
 
 ## Feature modules
 
-1. Tech task - refactor and move Events components to Event module
+1. Tech task - refactor and move chosen Events components to Event module
 2. Tech task - refactor and move to Share module all the components / directives / pipes which can be shared for other pages as well
 
 ## Routing
@@ -31,7 +34,7 @@ Create a new component if easier.
 ## Change detection
 
 1. Refactor add Event to be immutable 
-2. Create a long Event list mock and refactor the Event list component using OnPush (can also profile rander speeds)
+2. Create a long Event list mock and refactor the Event list component using OnPush (check profile render speeds)
 
 ## RxJS
 

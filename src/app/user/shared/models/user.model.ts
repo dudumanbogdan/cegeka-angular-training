@@ -27,10 +27,6 @@ export class UserModel implements UserInfoModel {
     }
   }
 
-  get fullName() {
-    return this.firstName + ' ' + this.lastName;
-  }
-
   toString(): any {
     return this.firstName + ' ' + this.lastName;
   }

@@ -1,10 +1,10 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserModel} from '../shared/models/user.model';
-import {Gender} from '../shared/enums/gender';
 import {UserService} from '../shared/services/user.service';
 import {CreateUserStateService} from '../shared/services/create-user-state.service';
 import {takeUntil} from 'rxjs/operators';
 import {Subject} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -16,7 +16,10 @@ export class UserListComponent implements OnInit, OnDestroy {
   filterArgs = {birthday: new Date(1999, 2, 5)};
   unsubscribe: Subject<any> = new Subject();
 
-  constructor(private userService: UserService, private createUserStateService: CreateUserStateService) {
+  constructor(private userService: UserService,
+              private createUserStateService: CreateUserStateService,
+              private router: Router
+  ) {
   }
 
   ngOnInit() {
@@ -28,6 +31,10 @@ export class UserListComponent implements OnInit, OnDestroy {
         console.log(data);
         this.userInfos = Object.assign([], this.userService.getAll());
       });
+  }
+
+  isRouteActive(id: number) {
+    return this.router.isActive(`chat/${id}`, true);
   }
 
   ngOnDestroy(): void {

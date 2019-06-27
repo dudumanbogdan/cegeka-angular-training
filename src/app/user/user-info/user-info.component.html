@@ -1,3 +1,4 @@
+<!-- For presentation 1. -->
 <!--<div class="userInfoContainer primary-color-text">-->
 <!--  {{userInfo.firstName}}-->
 <!--  {{userInfo.lastName}}-->
@@ -13,6 +14,7 @@
 <!--</div>-->
 
 
+<!-- For presentation 2. -->
 <div class="userInfoContainer primary-color-text" (click)="onUserInfoClick(userInfo.id)" [ngClass]="{'onlineUser': userInfo.status}">
   {{userInfo.firstName}} - {{userInfo.lastName}}
   <span class="onlineSvgIconUser" *ngIf="userInfo.status; else offlineIconUser">
