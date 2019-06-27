@@ -1,68 +1,39 @@
-# FEBootcamp2019 - day 2
+# FEBootcamp2019
+Bootcamp participants'excercises for the 3 presentation
 
-Bootcamp participants'excercises for the second Angular presentation
+## Testing 
 
-## Template form
+Checkout branch '3_Fundamentals_RxjsUnitTests'
 
-1. As a user I want to be able to create new Events
-    - Add a new Event button on the top of the list
-    - Generate a create new Event component
-    - Create a template form representing the data for the new Event.
-      Can contain the following details:
-        - title
-        - type
-        - creation / due date
-        - country
-        - description
-    - Add submit button and on click append the Event to the existing Event list
-    - Add template form validations
-        - title and description -> required, minlength 3
-        - creation / due date -> valid date
-        - type (enum) -> required, dropdown
-        - submit -> disabled if there is any invalid field
-    - Show custom error message for name (use css/directives)
+1. Tech task - refactor failing tests. Run ng test 
+2. Tech task - Change user info tests to pass
+3. Tech task - Refactor tests for user list to pass (include it for some tests) 
+4. Tech task - Add tests for create user component (include empty tests)
 
-## Reactive form
+## Feature modules
 
-1. Tech task - refactore Template form to use Reactive form 
-In order to have a history, create a new component 'create-event-reactive.component.ts' and use this new component to create Events.
-    - Add validators to FormControl
-    - Add FormGroup for title and details(for rest of properties)
+1. Tech task - refactor and move Events components to Event module
+2. Tech task - refactor and move to Share module all the components / directives / pipes which can be shared for other pages as well
 
 ## Routing
 
-1. As a user I want to have a home component (Show a home message)
-The Event list should always be displayed and a content given by the router
+1. Add go from Events to 'Sessions' and 'Speakers'. 
+Add new components
 
-2. As a user I want to have a home component route
-3. As a user I want to be redirected to another page when a user clicks "More info"
-4. As a user I want to see the content based on the selected "More info" and render event informations. (event/{id})
-5. As a user I want to have a not found route for an unmatched url
-6. As a user I want to have in navigation a link to display home component(logo)
-7. Add prevent navigation back while user details form is dirty (user can dismiss changes)
+2. Tech task - Implement a routing resolver on 'chat/:id' to resolve the UserId from BE.
+Meaning we should show the user details in chat.component if the user exists.
 
-## Directives
+## Dynamic component
 
-1. Tech task - refactor validators on create Event form to use build-in directives (ex: ngIf, ng-container)
-2. Tech task - Generate custom directive to add a RebeccaPurple border if field starts with an upper-case letter, for example 'J' on the Event name
+1. As a user I want to use a colapsable/button to show/hide user details when I am discussing with a friend (in chat.component).
+Create a new component if easier.
 
-## Pipes
+## Change detection
 
-1. As a user I want to change the format of the Creation Date in event (ex: MM-DD-YY h)
-2. As a user I want to add dynamic text to Description for Events created after 2015.
-"After 2015: description asd asd" if creation date > 2015.
+1. Refactor add Event to be immutable 
+2. Create a long Event list mock and refactor the Event list component using OnPush (can also profile rander speeds)
 
-## Services
+## RxJS
 
-1. Tech task - Genereate an user-info-service
-2. Tech task - Move the mocked data to the service
-
-## Server communication
-
-1.   Tech task - Create a new method to get Event list to return a promise and use then
-2.   Tech task - Create a new method to get Events using Observable.of and use subscribe to get the data
-3.   Tech task - Use the async pipe on the observable method defined earlier
-4.   Tech task - Use two operators from RxJS (ex: map, filter, catchError) -> return just the online Events
-
-
-
+1. Add search logic for Event list (use distinctUntilChange, skipWhile)
+2. Remove all promises and use only Observables
