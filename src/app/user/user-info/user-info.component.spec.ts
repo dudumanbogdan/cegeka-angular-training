@@ -8,7 +8,6 @@ import {By} from '@angular/platform-browser';
 import {RouterStub} from '../shared/test-utils/router-stub';
 import {MockData} from '../shared/test-utils/user-data-mock';
 
-
 describe('UserInfoComponent', () => {
   let component: UserInfoComponent;
   let fixture: ComponentFixture<UserInfoComponent>;
@@ -47,7 +46,7 @@ describe('UserInfoComponent', () => {
     return fixture.debugElement.query(By.css('.onlineSvgIconUser'));
   }
 
-  it('should create', () => {
+  it('should component be created', () => {
     expect(component).toBeTruthy();
   });
 
@@ -62,9 +61,14 @@ describe('UserInfoComponent', () => {
     });
   });
 
-
   it('should **router navigate** event been called on container click', () => {
+    const elem: DebugElement = getUserInfoContainer();
 
+    elem.nativeElement.click();
+
+    fixture.whenStable().then(() => {
+      expect(routerStub.navigate).toHaveBeenCalled();
+    });
   });
 
   it('should render firstName', () => {
@@ -74,26 +78,52 @@ describe('UserInfoComponent', () => {
   });
 
   it('should render lastName', () => {
+    const elem: DebugElement = getUserInfoContainer();
 
+    expect(elem.nativeElement.textContent).toContain(userInfo.lastName);
   });
 
   it('should render firstName and lastName sepparated by minus character', () => {
+    const elem: DebugElement = getUserInfoContainer();
 
+    expect(elem.nativeElement.textContent).toContain(`${userInfo.firstName} - ${userInfo.lastName}`);
   });
 
   it('should render with offline svg icon when status is false', () => {
+    const elem: DebugElement = getOfflineSvgIconContainer();
 
+    userInfo.status = false;
+
+    expect(elem.nativeElement).toBeTruthy();
   });
 
   it('should not render with offline svg icon when status is true', () => {
+    userInfo.status = true;
+    component.userInfo = userInfo;
+    fixture.detectChanges();
 
+    const elem: DebugElement = getOfflineSvgIconContainer();
+
+    expect(elem).toBeFalsy();
   });
 
   it('should render with online svg icon when status is true', () => {
+    userInfo.status = true;
+    component.userInfo = userInfo;
+    fixture.detectChanges();
 
+    const elem: DebugElement = getOnlineSvgIconContainer();
+
+    expect(elem.nativeElement).toBeTruthy();
   });
 
   it('should not render with online svg icon when status is false', () => {
+    userInfo.status = false;
+    component.userInfo = userInfo;
+    fixture.detectChanges();
 
+    const elem: DebugElement = getOnlineSvgIconContainer();
+
+    expect(elem).toBeFalsy();
   });
 });
