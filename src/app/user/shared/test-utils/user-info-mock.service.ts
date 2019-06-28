@@ -4,7 +4,9 @@ import {Gender} from '../enums/gender';
 
 export class MockUserModelInfoService {
   getAll(): UserModel[] {
-    throw new Error('Method not implemented.');
+    return [
+      new UserModel({'id': 1, 'firstName': 'John', 'lastName': 'Bravo', type: Gender.Male, status: true}),
+      new UserModel({'id': 2, 'firstName': 'Jacquelyn', 'lastName': 'Beeck', birthday: new Date(1990, 3, 7), type: Gender.Female})];
   }
 
   getAllWithPromise(): Promise<UserModel[]> {

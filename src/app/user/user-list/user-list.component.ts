@@ -28,7 +28,6 @@ export class UserListComponent implements OnInit, OnDestroy {
     this.createUserStateService.createUserSource$()
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data) => {
-        console.log(data);
         this.userInfos = Object.assign([], this.userService.getAll());
       });
   }

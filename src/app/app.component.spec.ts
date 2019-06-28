@@ -1,12 +1,22 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {UserListComponent} from './user/user-list/user-list.component';
+import {FilterDatePipe} from './shared/pipes/filter-date.pipe';
+import {UserInfoComponent} from './user/user-info/user-info.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        UserListComponent,
+        UserInfoComponent,
+        FilterDatePipe
       ],
+      imports: [
+        RouterTestingModule
+      ]
     }).compileComponents();
   }));
 
@@ -20,12 +30,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('cegeka-angular-training');
-  });
-
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to cegeka-angular-training!');
   });
 });
